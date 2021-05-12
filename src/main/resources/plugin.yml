@@ -1,0 +1,23 @@
+main: cloud.ejaonline.mc.SitDown
+name: SitDown
+version: 1.1
+author: Geilmaker
+description: Users can Sit down
+
+commands:
+  sit:
+  sitdown:
+  
+permissions:
+  sitdown.sit:
+    description: User can sit down.
+    default: true
+  sitdown.admin:
+    description: Can enable/disable Plugin.
+    default: op
+  sitdown.*:
+    description: Wildcard permission for SitDown.
+    default: op
+    children:
+      sitdown.sit: true
+      sitdown.admin: true

@@ -1,0 +1,19 @@
+# 
+#  "SitDown config file"
+#
+
+#  "Wheter the Plugin is enabled or disabled"
+enabled: true
+
+#  "Some of the messages you may want to reconfigure."
+vehicle-air-message: "&cYou must be standing in order to use this command."
+sit-message: "&aYou are now sitting, press &cSHIFT&a to get right back up!"
+stand-message: "&aYou are no longer sitting."
+missing-permission-message: "&cYou dont have the permission to do that!"
+disabled-message: "&cThis feature is currently disabled."
+wrong-sender-message: "&cOnly players can use this command." # If sender != player
+already-disabled-message: "&cThe functions of the plugin are already &a%sd&c."
+now-disabled-message: "&aThe functions of the plugin are now &c%sd&a."
+
+#  "Allow players to sit on stairs like a chair."
+right-click-stair-sit: true
