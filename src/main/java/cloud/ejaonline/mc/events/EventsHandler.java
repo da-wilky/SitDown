@@ -18,12 +18,11 @@ import org.bukkit.util.Vector;
 import org.spigotmc.event.entity.EntityDismountEvent;
 
 import cloud.ejaonline.mc.Helper;
-import cloud.ejaonline.mc.SitDown;
 
 public class EventsHandler implements Listener {
     // private FileConfiguration config;
     private Helper helper;
-    private String standMessage; 
+    private String standMessage;
     private boolean stairs;
 
     public EventsHandler(FileConfiguration config, Helper helper) {
@@ -32,7 +31,6 @@ public class EventsHandler implements Listener {
         standMessage = helper.transStr(config.getString("stand-message"));
         stairs = config.getBoolean("right-click-stair-sit");
     }
-
 
     @EventHandler
     public void onEntityDismount(EntityDismountEvent e) {
@@ -59,9 +57,10 @@ public class EventsHandler implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
-        if ((!stairs) || (!SitDown.pluginEnabled) || (!e.getPlayer().hasPermission(SitDown.sitPermission))
-                || (e.getClickedBlock() == null)
-                || e.getPlayer().isSneaking()
+        if ((!stairs) || (!helper.getPluginEnabled())
+                || (!(e.getPlayer().hasPermission(helper.getSitPermission())
+                        || e.getPlayer().hasPermission(helper.getWildcardPermission())))
+                || (e.getClickedBlock() == null) || e.getPlayer().isSneaking()
                 || e.getPlayer().getInventory().getItemInMainHand().getType() != Material.AIR
                 || e.getClickedBlock().getLocation().distance(e.getPlayer().getLocation()) > 3.5)
             return;

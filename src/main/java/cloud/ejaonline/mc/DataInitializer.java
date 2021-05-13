@@ -37,8 +37,8 @@ public class DataInitializer {
     }
 
     private void permissions() {
-        SitDown.sitPermission = plugin.getDescription().getPermissions().get(0);
-        SitDown.adminPermission = plugin.getDescription().getPermissions().get(1);
-        SitDown.wildcardPermission = plugin.getDescription().getPermissions().get(2);
+        helper.setSitPermission(plugin.getDescription().getPermissions().get(0));
+        helper.setAdminPermission(plugin.getDescription().getPermissions().get(1));
+        helper.setWildcardPermission(plugin.getDescription().getPermissions().get(2));
     }
 }

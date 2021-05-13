@@ -7,7 +7,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import cloud.ejaonline.mc.Helper;
-import cloud.ejaonline.mc.SitDown;
 
 public class AdminCommandHandler implements CommandExecutor {
     private JavaPlugin plugin;
@@ -22,7 +21,8 @@ public class AdminCommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String string, String[] strings) {
-        if (!(sender.hasPermission(SitDown.adminPermission) || sender.hasPermission(SitDown.wildcardPermission))) {
+        if (!(sender.hasPermission(helper.getAdminPermission())
+                || sender.hasPermission(helper.getWildcardPermission()))) {
             return false;
         }
         if (strings.length != 1) {
@@ -38,12 +38,12 @@ public class AdminCommandHandler implements CommandExecutor {
             return false;
         }
 
-        if (!(newEnabled ^ SitDown.pluginEnabled)) {
+        if (!(newEnabled ^ helper.getPluginEnabled())) {
             sender.sendMessage(
                     helper.transStr(String.format(config.getString("already-disabled-message"), strings[0])));
         } else {
             config.set("enabled", newEnabled);
-            SitDown.pluginEnabled = newEnabled;
+            helper.setPluginEnabled(newEnabled);
             plugin.saveConfig();
             sender.sendMessage(helper.transStr(String.format(config.getString("now-disabled-message"), strings[0])));
         }

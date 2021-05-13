@@ -8,7 +8,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import cloud.ejaonline.mc.Helper;
-import cloud.ejaonline.mc.SitDown;
 
 public class CommandHandler implements CommandExecutor {
     private FileConfiguration config;
@@ -21,7 +20,7 @@ public class CommandHandler implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String string, String[] strings) {
-        if (!SitDown.pluginEnabled) {
+        if (!helper.getPluginEnabled()) {
             sender.sendMessage(helper.transStr(config.getString("disabled-message")));
             return true;
         } else if (!(sender instanceof Player)) {
@@ -31,7 +30,7 @@ public class CommandHandler implements CommandExecutor {
 
         Player p = (Player) sender;
         Location location = p.getLocation();
-        location.setY(location.getBlockY() - (1.7 - location.getY()%1));
+        location.setY(location.getBlockY() - (1.7 - location.getY() % 1));
 
         helper.sitDown(p, location);
 

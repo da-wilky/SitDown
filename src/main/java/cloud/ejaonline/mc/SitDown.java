@@ -1,19 +1,13 @@
 package cloud.ejaonline.mc;
 
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import cloud.ejaonline.mc.events.EventsHandler;
 
 public class SitDown extends JavaPlugin {
-
-    public FileConfiguration config;
-    public JavaPlugin plugin;
-    public static Permission sitPermission;
-    public static Permission adminPermission;
-    public static Permission wildcardPermission;
-    public static boolean pluginEnabled;
+    private FileConfiguration config;
+    private JavaPlugin plugin;
 
     @Override
     public void onEnable() {
@@ -21,7 +15,6 @@ public class SitDown extends JavaPlugin {
         plugin = this;
         saveDefaultConfig();
         config = getConfig();
-        pluginEnabled = config.getBoolean("enabled");
 
         // Commands and Permissions
         Helper helper = new Helper(plugin, config);
@@ -33,6 +26,6 @@ public class SitDown extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Disable 
+        // Disable
     }
 }
