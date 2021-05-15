@@ -1,5 +1,6 @@
 package cloud.ejaonline.mc;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.PluginCommand;
@@ -49,7 +50,14 @@ public class SitDown extends JavaPlugin {
     @Override
     public void onDisable() {
         // Disable
-        
+        Bukkit.getWorlds().forEach((world) -> {
+            world.getEntitiesByClass(ArmorStand.class).forEach((armorstand) -> {
+                if (armorstand.getMetadata("chair") != null) {
+                    armorstand.remove();
+                    print("REMOVED CHAIR");
+                }
+            });
+        });
     }
 
     public void print(String str) {

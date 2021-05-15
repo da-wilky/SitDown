@@ -1,6 +1,7 @@
 main: cloud.ejaonline.mc.SitDown
 name: SitDown
 version: 1.1
+api-version: 1.16
 author: Geilmaker
 description: Users can Sit down
 
