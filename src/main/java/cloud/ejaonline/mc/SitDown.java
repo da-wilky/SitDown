@@ -54,7 +54,6 @@ public class SitDown extends JavaPlugin {
             world.getEntitiesByClass(ArmorStand.class).forEach((armorstand) -> {
                 if (armorstand.getMetadata("chair") != null) {
                     armorstand.remove();
-                    print("REMOVED CHAIR");
                 }
             });
         });
