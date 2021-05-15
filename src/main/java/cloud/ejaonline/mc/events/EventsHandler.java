@@ -17,18 +17,16 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.util.Vector;
 import org.spigotmc.event.entity.EntityDismountEvent;
 
-import cloud.ejaonline.mc.Helper;
+import cloud.ejaonline.mc.SitDown;
 
 public class EventsHandler implements Listener {
-    // private FileConfiguration config;
-    private Helper helper;
+    private SitDown plug;
     private String standMessage;
     private boolean stairs;
 
-    public EventsHandler(FileConfiguration config, Helper helper) {
-        // this.config = config;
-        this.helper = helper;
-        standMessage = helper.transStr(config.getString("stand-message"));
+    public EventsHandler(FileConfiguration config, SitDown plug) {
+        this.plug = plug;
+        standMessage = plug.transStr(config.getString("stand-message"));
         stairs = config.getBoolean("right-click-stair-sit");
     }
 
@@ -57,9 +55,9 @@ public class EventsHandler implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
-        if ((!stairs) || (!helper.getPluginEnabled())
-                || (!(e.getPlayer().hasPermission(helper.getSitPermission())
-                        || e.getPlayer().hasPermission(helper.getWildcardPermission())))
+        if ((!stairs) || (!plug.pluginEnabled)
+                || (!(e.getPlayer().hasPermission(plug.getSitPermission())
+                        || e.getPlayer().hasPermission(plug.getWildcardPermission())))
                 || (e.getClickedBlock() == null) || e.getPlayer().isSneaking()
                 || e.getPlayer().getInventory().getItemInMainHand().getType() != Material.AIR
                 || e.getClickedBlock().getLocation().distance(e.getPlayer().getLocation()) > 3.5)
@@ -80,7 +78,7 @@ public class EventsHandler implements Listener {
                 location.add(0.5, -1.2, 0.5);
                 location.setDirection(new Vector(facing.getModX(), facing.getModY(), facing.getModZ()));
 
-                helper.sitDown(e.getPlayer(), location);
+                plug.sitDown(e.getPlayer(), location);
             }
         }
     }
