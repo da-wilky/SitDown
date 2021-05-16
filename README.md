@@ -1,5 +1,5 @@
 # SitDown
-SitDown Minecraft Plugin
+SitDown Minecraft Plugin\
 Get it on https://www.spigotmc.org/resources/sitdown.92297/
 
 ### Overview
