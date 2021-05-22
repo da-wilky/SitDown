@@ -11,7 +11,7 @@ With this Plugin you can sit everywhere. Just right click a stair or use /sit.
 * use /sit everywhere and you will sit on the right height, even on half slabs
 * you cant use /sit in air to avoid fall damage
 * your chair will be removed as you stand up or disconnect
-* on reload / shutdown all stairs are getting removed
+* on reload / shutdown all chairs are getting removed
 * you can activate/deactivate the sit feature with a single command at any time /sitdown [enable/disable] or inside the config.yml
 
 ### Commands
