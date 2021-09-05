@@ -41,6 +41,7 @@ public class EventsHandler implements Listener {
         if (e.getDismounted().getMetadata("chair") != null) {
             e.getDismounted().remove();
             Player p = (Player) e.getEntity();
+            p.teleport(p.getLocation().add(0, 1, 0));
             p.sendMessage(standMessage);
         }
     }
