@@ -42,6 +42,8 @@ public class AdminCommandHandler implements CommandExecutor {
             config.set("enabled", newEnabled);
             plug.pluginEnabled = newEnabled;
             plug.saveConfig();
+            if (!newEnabled)
+                plug.onDisable();
             sender.sendMessage(plug.transStr(String.format(config.getString("now-disabled-message"), strings[0])));
         }
         return true;

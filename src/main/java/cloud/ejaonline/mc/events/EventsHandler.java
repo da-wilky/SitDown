@@ -14,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.util.Vector;
 import org.spigotmc.event.entity.EntityDismountEvent;
 
@@ -60,6 +61,7 @@ public class EventsHandler implements Listener {
                 || (!(e.getPlayer().hasPermission(plug.getSitPermission())
                         || e.getPlayer().hasPermission(plug.getWildcardPermission())))
                 || (e.getClickedBlock() == null) || e.getPlayer().isSneaking()
+                || e.getHand() == EquipmentSlot.OFF_HAND
                 || e.getPlayer().getInventory().getItemInMainHand().getType() != Material.AIR
                 || e.getClickedBlock().getLocation().distance(e.getPlayer().getLocation()) > 3.5)
             return;

@@ -3,6 +3,9 @@ package cloud.ejaonline.mc;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.ArmorStand;
@@ -68,12 +71,11 @@ public class SitDown extends JavaPlugin {
     }
 
     public void sitDown(Player p, Location location) {
+        Block under = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
         if (!(p.hasPermission(sitPermission) || p.hasPermission(wildcardPermission))) {
             p.sendMessage(denyMessage);
             return;
-        } else if (p.isInsideVehicle() || !p.isOnGround()) {
-            // isOnGround deprecated cuz data from client = vulnurable for hax - not that
-            // important in this case ^^
+        } else if (p.isInsideVehicle() || under.getType() == Material.AIR) {
             p.sendMessage(vehicleMessage);
             return;
         }
