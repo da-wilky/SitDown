@@ -22,3 +22,10 @@ With this Plugin you can sit everywhere. Just right click a stair or use /sit.
     sitdown.sit - Permission to use /sit and right click stairs to sit
     sitdown.admin - Permission to enable/disable the plugin features
     sitdown.* - Wildcard Permission
+
+### Versions
+I did not test the upper versions of the plugin with the lower versions of Minecraft, but I assume they are also working. A list of plugin versions created (or tested) for specific Minecraft versions:
+
+* SitDown 2.0: Minecraft 1.16
+* SitDown 3.0: Minecraft 1.17 (and tested on 1.18)
+* SitDown 4.0: Minecraft 1.19
