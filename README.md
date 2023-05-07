@@ -5,9 +5,6 @@ Get it on https://www.spigotmc.org/resources/sitdown.92297/
 ### Overview
 With this Plugin you can sit everywhere. Just right click a stair or use /sit.
 
-### Important
-If you have any issues using the latest SitDown release in minecraft version 1.16.5, please download SitDown v2.0 release and use that one.
-
 ### Features
 * go to any kind of stair (no edge, not flipped on top) and right click to sit on that stair
 * you cant right click a stair from behind so you cant glitch yourself through walls
